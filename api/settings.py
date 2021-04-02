@@ -31,7 +31,7 @@ CORS_ORIGIN_WHITELIST = (
     '*'
 )
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200"
+    "*"
 ]
 CORS_ALLOW_HEADERS = [
     'accept',
