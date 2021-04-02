@@ -111,7 +111,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgresql-metric-08898',
-        'USER': 'meent.homeart@gmail.com',
+        'USER': 'u3123',
         'PASSWORD': 'MeineKunstIstEinzigartig1!',
         'HOST': 'localhost',
         'PORT': '',
