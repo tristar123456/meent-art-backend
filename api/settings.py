@@ -45,6 +45,7 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
     '*'
 ]
+
 CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
 CSRF_COOKIE_SECURE = False
 
