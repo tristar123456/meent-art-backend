@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}<title>Home</title>{% endblock %}
+</head>
+<body>
+{% block sidebar %}
+{% endblock %}
+{% block content %}
+    <ul>
+    <li><strong>Items:</strong> {{ num_items }}</li>
+  </ul>
+{% endblock %}
+</body>
+</html>
