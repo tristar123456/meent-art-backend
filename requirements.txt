@@ -1,1 +1,1 @@
-corsheader
+django-cors-headers
