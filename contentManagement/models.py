@@ -7,10 +7,9 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
-
 class Item(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    date = models.DateField(default=timezone.now() ,null=True, blank=True)
+    date = models.DateField(default=timezone.now,null=True, blank=True)
     title = models.CharField(max_length=200, null=True, blank=True)
     text = models.TextField(max_length=2000, null=True, blank=True)
     # image = models.CharField(max_length=400, null=True, blank=True)
