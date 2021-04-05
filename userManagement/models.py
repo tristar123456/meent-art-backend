@@ -11,6 +11,6 @@ def return_date_time():
     return now + timedelta(days=1)
 
 class Token(models.Model):
-    api_token = models.UUIDField(primary_key=True, default=uuid.uuid4, null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    api_token = models.UUIDField(default=uuid.uuid4, null=False)
     date = models.DateTimeField(default=return_date_time, null=True)
