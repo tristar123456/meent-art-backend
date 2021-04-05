@@ -15,16 +15,18 @@ import corsheaders
 # import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import dj_database_url
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ku3oh&j0(st6lxv^$tmx@qyg@14+c3tr1y*i6dyhpb=akrwea='
+SECRET_KEY = open(BASE_DIR + '/key_file', 'r').readline()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost' , '.herokuapp.com']
 CORS_ORIGIN_WHITELIST = (
@@ -107,25 +109,25 @@ WSGI_APPLICATION = 'api.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 # LOCAL TESTING DATABASE:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'postgresql-metric-08898',
-#         'USER': 'u3123',
-#         'PASSWORD': 'MeineKunstIstEinzigartig1!',
-#         'HOST': 'localhost',
-#         'PORT': '',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgresql-metric-08898',
+        'USER': 'u3123',
+        'PASSWORD': 'MeineKunstIstEinzigartig1!',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
