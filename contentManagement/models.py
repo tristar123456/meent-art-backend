@@ -14,7 +14,7 @@ class Item(models.Model):
     text = models.TextField(max_length=2000, null=True, blank=True)
     # image = models.CharField(max_length=400, null=True, blank=True)
     image = models.ImageField(upload_to='images', null=True)
-    image_url = models.URLField(null=True)
+    image_url = models.CharField(max_length=200,null=True)
 
     class Meta:
         ordering = ['date']

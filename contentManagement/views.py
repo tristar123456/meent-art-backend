@@ -29,14 +29,18 @@ def ItemDetail(request, id):
 
 
 def jsonItem(item, request):
+    try:
+        imgLink = request.build_absolute_uri(item.image.url)
+    except ValueError:
+        imgLink = item.image_url if item.image_url is not None else ''
+
     json_item = {
         'id': str(item.id),
         'date': str(item.date) if item.date is not None else '',
         'title': item.title if item.title is not None else '',
         'text': item.text if item.text is not None else '',
-        'imgLink': request.build_absolute_uri(item.image.url) if item.image is not None else ''
+        'imgLink': imgLink
     }
-    print(request.build_absolute_uri(item.image.url))
     return json_item
 
 

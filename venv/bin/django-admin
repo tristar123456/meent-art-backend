@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/tristan.wolf@GDAAG.DE/Seafile/My Library/Own Projects/unartig/api/venv/bin/python" "$0" "$@"
+'''exec' "/home/tristan.wolf@GDAAG.DE/Seafile/My Library/Own Projects/meent-art/meent-art-backend/venv/bin/python" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

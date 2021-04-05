@@ -1,2 +1,1 @@
-web: gunicorn api.wsgi --log-file
-u3123
+web: gunicorn api.wsgi --log-file log
