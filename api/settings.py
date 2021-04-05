@@ -35,7 +35,9 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200',
     "http://localhost",
     "https://localhost",
-    "http://127.0.0.1"
+    "http://127.0.0.1",
+    "https://meent-art-pinboard.web.app",
+    "https://meent-art.web.app"
 ]
 CORS_ALLOW_HEADERS = [
     'accept',
