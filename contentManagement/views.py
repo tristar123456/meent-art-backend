@@ -9,6 +9,7 @@ from django.views import generic
 
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
+from google.cloud.storage import Blob, blob
 
 from contentManagement.models import Item
 from userManagement.models import Token
@@ -174,8 +175,9 @@ def decode_base64_file(data):
         complete_file_name = "%s.%s" % (file_name, file_extension, )
         content_file = ContentFile(decoded_file, name=complete_file_name)
 
-        _bucket.blob(complete_file_name).upload_from_file(content_file, content_type='image/'+file_extension)
-
+        new_blob = _bucket.blob(complete_file_name)
+        new_blob.content_type = 'image/'+file_extension
+        new_blob.upload_from_file(file_obj=content_file)
         return content_file
 
 
