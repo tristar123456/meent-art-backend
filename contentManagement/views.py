@@ -1,29 +1,12 @@
 import json
 import os
-import uuid
-
-from PIL.Image import Image
 from django.http import Http404, HttpResponse, JsonResponse, HttpResponseForbidden
-from django.shortcuts import render
-from django.views import generic
 
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
-from google.cloud.storage import Blob, blob
 
 from contentManagement.models import Item
 from userManagement.models import Token
-
-
-import firebase_admin
-from firebase_admin import credentials, storage
-
-cred = credentials.Certificate(os.environ.get('PWD')+"/meent-art-pinboard-90a20008cad4.json")
-firebase_admin.initialize_app(cred, {
-    'storageBucket': 'meent-art-pinboard.appspot.com'
-})
-
-_bucket = storage.bucket()
 
 def ItemList(request):
     item_list = Item.objects.all()
@@ -145,7 +128,7 @@ def decode_base64_file(data):
         import imghdr
 
         extension = imghdr.what(file_name, decoded_file)
-        # extension = "jpg" if extension == "jpeg" else extension
+        extension = "jpg" if extension == "jpeg" else extension
 
         return extension
 
@@ -175,10 +158,6 @@ def decode_base64_file(data):
         complete_file_name = "%s.%s" % (file_name, file_extension, )
         content_file = ContentFile(decoded_file, name=complete_file_name)
 
-        new_blob = _bucket.blob(complete_file_name)
-        new_blob.content_type = 'image/'+file_extension
-        new_blob.upload_from_string(decoded_file)
-        print(new_blob)
         return content_file
 
 
