@@ -145,7 +145,7 @@ def decode_base64_file(data):
         import imghdr
 
         extension = imghdr.what(file_name, decoded_file)
-        extension = "jpg" if extension == "jpeg" else extension
+        # extension = "jpg" if extension == "jpeg" else extension
 
         return extension
 
@@ -177,7 +177,7 @@ def decode_base64_file(data):
 
         new_blob = _bucket.blob(complete_file_name)
         new_blob.content_type = 'image/'+file_extension
-        new_blob.upload_from_file(file_obj=content_file)
+        new_blob.upload_from_string(decoded_file)
         print(new_blob)
         return content_file
 
