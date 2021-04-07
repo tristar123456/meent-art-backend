@@ -17,9 +17,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='Token'
-        ),
         migrations.CreateModel(
             name='Token',
             fields=[
