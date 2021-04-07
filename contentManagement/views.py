@@ -19,23 +19,10 @@ from firebase_admin import credentials, storage
 
 cred = credentials.Certificate(os.environ.get('PWD')+"/meent-art-pinboard-90a20008cad4.json")
 firebase_admin.initialize_app(cred, {
-    'storageBucket': 'gs://meent-art-pinboard.appspot.com'
+    'storageBucket': 'meent-art-pinboard.appspot.com'
 })
 
 _bucket = storage.bucket()
-
-# from google.cloud import storage
-#
-# # Instantiates a client
-# storage_client = storage.Client()
-#
-# # The name for the new bucket
-# bucket_name = "images"
-#
-# # Creates the new bucket
-# _bucket = storage_client.create_bucket(bucket_name)
-#
-# print("Bucket {} created.".format(_bucket.name))
 
 def ItemList(request):
     item_list = Item.objects.all()
@@ -109,7 +96,8 @@ def AddItem(request):
         except:
             image_url = ''
         try:
-            image = _bucket.blob(str(uuid.uuid4())[:12]).upload_from_string((body['image']))
+            image = decode_base64_file(body['image'])
+            _bucket.blob(image.name).upload_from_file(image.file)
         except:
             image = None
 
@@ -144,6 +132,7 @@ def EditItem(request):
             pass
         try:
             edited_item.image = decode_base64_file(body['image'])
+            _bucket.blob(edited_item.image.name).upload_from_file(edited_item.image.file)
         except:
             pass
         edited_item.save()
