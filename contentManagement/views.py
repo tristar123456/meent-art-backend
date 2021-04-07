@@ -97,7 +97,6 @@ def AddItem(request):
             image_url = ''
         try:
             image = decode_base64_file(body['image'])
-            _bucket.blob(image.name).upload_from_file(image.file)
         except:
             image = None
 
@@ -132,7 +131,6 @@ def EditItem(request):
             pass
         try:
             edited_item.image = decode_base64_file(body['image'])
-            _bucket.blob(edited_item.image.name).upload_from_file(edited_item.image.file)
         except:
             pass
         edited_item.save()
@@ -174,8 +172,11 @@ def decode_base64_file(data):
         file_extension = get_file_extension(file_name, decoded_file)
 
         complete_file_name = "%s.%s" % (file_name, file_extension, )
+        content_file = ContentFile(decoded_file, name=complete_file_name)
 
-        return ContentFile(decoded_file, name=complete_file_name)
+        _bucket.blob(complete_file_name).upload_from_file(content_file, content_type='image/'+file_extension)
+
+        return content_file
 
 
 @csrf_exempt
