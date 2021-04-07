@@ -13,15 +13,28 @@ from contentManagement.models import Item
 from userManagement.models import Token
 
 
-import firebase_admin
-from firebase_admin import credentials, storage
+# import firebase_admin
+# from firebase_admin import credentials, storage
+#
+# cred = credentials.Certificate("contentManagement/meent-art-pinboard-90a20008cad4.json")
+# firebase_admin.initialize_app(cred, {
+#     'storageBucket': 'gs://meent-art-pinboard.appspot.com'
+# })
+#
+# bucket = storage.bucket()
 
-cred = credentials.Certificate("contentManagement/meent-art-pinboard-90a20008cad4.json")
-firebase_admin.initialize_app(cred, {
-    'storageBucket': 'gs://meent-art-pinboard.appspot.com'
-})
+from google.cloud import storage
 
-bucket = storage.bucket()
+# Instantiates a client
+storage_client = storage.Client()
+
+# The name for the new bucket
+bucket_name = "images"
+
+# Creates the new bucket
+_bucket = storage_client.create_bucket(bucket_name)
+
+print("Bucket {} created.".format(_bucket.name))
 
 def ItemList(request):
     item_list = Item.objects.all()
@@ -96,7 +109,7 @@ def AddItem(request):
         except:
             image_url = ''
         try:
-            image = bucket.blob(str(uuid.uuid4())[:12]).upload_from_string((body['image']))
+            image = _bucket.blob(str(uuid.uuid4())[:12]).upload_from_string((body['image']))
         except:
             image = None
 
