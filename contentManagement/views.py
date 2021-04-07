@@ -178,6 +178,7 @@ def decode_base64_file(data):
         new_blob = _bucket.blob(complete_file_name)
         new_blob.content_type = 'image/'+file_extension
         new_blob.upload_from_file(file_obj=content_file)
+        print(new_blob)
         return content_file
 
 
