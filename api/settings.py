@@ -59,9 +59,6 @@ CSRF_COOKIE_SECURE = False
 
 # Application definition
 
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '<path to your json private key file>'
-GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '<base google drive path for file uploads>'
-
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
@@ -72,7 +69,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'contentManagement.apps.ContentmanagementConfig',
     'userManagement.apps.UsermanagementConfig',
-    'gdstorage',
     'corsheaders',
 ]
 
