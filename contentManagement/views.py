@@ -1,4 +1,5 @@
 import json
+import os
 import uuid
 
 from PIL.Image import Image
@@ -13,28 +14,28 @@ from contentManagement.models import Item
 from userManagement.models import Token
 
 
-# import firebase_admin
-# from firebase_admin import credentials, storage
+import firebase_admin
+from firebase_admin import credentials, storage
+
+cred = credentials.Certificate(os.environ.get('PWD')+"/meent-art-pinboard-90a20008cad4.json")
+firebase_admin.initialize_app(cred, {
+    'storageBucket': 'gs://meent-art-pinboard.appspot.com'
+})
+
+_bucket = storage.bucket()
+
+# from google.cloud import storage
 #
-# cred = credentials.Certificate("contentManagement/meent-art-pinboard-90a20008cad4.json")
-# firebase_admin.initialize_app(cred, {
-#     'storageBucket': 'gs://meent-art-pinboard.appspot.com'
-# })
+# # Instantiates a client
+# storage_client = storage.Client()
 #
-# bucket = storage.bucket()
-
-from google.cloud import storage
-
-# Instantiates a client
-storage_client = storage.Client()
-
-# The name for the new bucket
-bucket_name = "images"
-
-# Creates the new bucket
-_bucket = storage_client.create_bucket(bucket_name)
-
-print("Bucket {} created.".format(_bucket.name))
+# # The name for the new bucket
+# bucket_name = "images"
+#
+# # Creates the new bucket
+# _bucket = storage_client.create_bucket(bucket_name)
+#
+# print("Bucket {} created.".format(_bucket.name))
 
 def ItemList(request):
     item_list = Item.objects.all()
@@ -95,7 +96,6 @@ def parseBody(request):
 def AddItem(request):
     if checkAccess(request):
         body = parseBody(request)['addItem']
-        print(body)
         try:
             title = body['title']
         except:
