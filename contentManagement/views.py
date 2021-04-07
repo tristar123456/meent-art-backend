@@ -24,10 +24,10 @@ def ItemDetail(request, id):
 
 
 def jsonItem(item, request):
-    try:
-        imgLink = request.build_absolute_uri(item.image.url)
-    except ValueError:
-        imgLink = item.image_url if item.image_url is not None else ''
+    # try:
+    #     imgLink = request.build_absolute_uri(item.image.url)
+    # except ValueError:
+    imgLink = item.image_url if item.image_url is not None else ''
 
     json_item = {
         'id': str(item.id),
@@ -79,16 +79,16 @@ def AddItem(request):
             image_url = body['imgLink']
         except:
             image_url = ''
-        try:
-            image = decode_base64_file(body['image'])
-        except:
-            image = None
+        # try:
+        #     image = decode_base64_file(body['image'])
+        # except:
+        #     image = None
 
         Item.objects.create(
             title=title,
             text=text,
             image_url=image_url,
-            image=image
+            # image=image
         )
 
         return JsonResponse(True, safe=False)
@@ -113,10 +113,10 @@ def EditItem(request):
             edited_item.image_url = body['imgLink']
         except:
             pass
-        try:
-            edited_item.image = decode_base64_file(body['image'])
-        except:
-            pass
+        # try:
+        #     edited_item.image = decode_base64_file(body['image'])
+        # except:
+        #     pass
         edited_item.save()
         return JsonResponse(True, safe=False)
     else:

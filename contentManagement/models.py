@@ -13,7 +13,7 @@ class Item(models.Model):
     title = models.CharField(max_length=200, null=True, blank=True)
     text = models.TextField(max_length=2000, null=True, blank=True)
     # image = models.CharField(max_length=400, null=True, blank=True)
-    image = models.ImageField(upload_to='images', null=True)
+    # image = models.ImageField(upload_to='images', null=True)
     image_url = models.CharField(max_length=200,null=True)
 
     class Meta:
@@ -25,11 +25,11 @@ class Item(models.Model):
     def get_absolute_url(self):
         return reverse('item', args=[str(self.id)])
 
-    def save(self, *args, **kwargs):
-        if self.image_url and not self.image:
-            img_temp = NamedTemporaryFile(delete=True)
-            img_temp.write(urlopen(self.image_url).read())
-            img_temp.flush()
-            self.image.save(f"image_{self.pk}", File(img_temp))
-        super(Item, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     if self.image_url and not self.image:
+    #         img_temp = NamedTemporaryFile(delete=True)
+    #         img_temp.write(urlopen(self.image_url).read())
+    #         img_temp.flush()
+    #         self.image.save(f"image_{self.pk}", File(img_temp))
+    #     super(Item, self).save(*args, **kwargs)
 
