@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "meent-art-pinboard",
+  "private_key_id": "90a20008cad4fedd41e0e7247fd55336b04d53fb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC1mp9Bq8t2NVWP\nUc9hQT/rMxSDtC00A+whCkrgQzZ8FS3kPdWgMHdCkUXbDQH0XQ5Mx1vj/YmUZ+RZ\ncQBpFzWbAXHat0GTgZg0MZIMRW5cmy2y/4G+yMg7e+U1tu1XUXEWKm81XTXHdVl1\nLzU7Y8M8EkRg9nlguuFT+ZI0Iu+23kKOzw9LPVpcFx8Z3Xvpd3nV6f1NtdW2SgGK\ngYEmL8AhenKlZLHDwt507QxY+xdGTHn1jz4Vmi9LBLjk6Azd6luwzbJKcNH8vD/b\nrcZO5D5ahRwvdL+xlVN0EAEtecIf4cL6amROVPpLnFAcpybYVZvYNHMGJvajA6j4\n0TsOY74fAgMBAAECggEANjTjGI0Y/D3LPi5jQlpho+jpVK6xV3dcQjh6RRqK5trD\nif9TBq+wyXPncA0f6jrki9JuAU2qhVvFc1UhlDzTSWNTAr/0mPzz25B4UaVf3dCM\nAYP2zGXOLsM6lZ/2lDvBD6a27yzVYqYKf8oJj6Klogap1m97p33gyFoUY++RsfmA\nG+mY9Vw+l6bZ+4Ph/l2U+JnFSPWpxmCAwlwEr0E5LiXILv+lEJiS0qNTEN2E7Y9c\nChieYx6n+QXRWqB+CDGMxaxV4f0tPGs8HGXfHfiBVJW2IGUoycCDH9NxKFq3fUX4\nAhyj7cBdQkxg+DUUluGWYHCKLRSJuphCDCZhB7bpEQKBgQDz/vagdqrhJGmQhdgY\nL7VX9qM8wVC88tUKLH4M95H5s+3kgLdyWzinGU1Y7u/Uuo/6pjWH/lrtlTd853ws\nSxmi4j9bzEQ8evVEcabfobjl3v9YS8R4RU4VvvlgmvB72mG1Raw7bqYCdVl7S87F\nnAGi8iYxEHQF6w4xUsS3wym3AwKBgQC+idsJ8kNTjj1vjuSTJfAMfH0xohszQBBX\ndsNeQis8S0aXCC0nvqDWZYPvWS5ISjHjqkR6f3SBPJisc0gC51w2Xq1ilKSf2cPw\nZmpQLsH7Q/gorlSu+nXRX0JS1zdhcHvSqILt3898+KhJxrB7QJeI9J9Gd24e0iiM\njkB6NeVztQKBgQDsIB8OtSizj2h1y4GQDoOBqBbbUf3PjXUsTliCNghXzY/4ZbSi\nf7M4yty2py0EArQZjkYZ4MagS5qSTvc1akxZ/HfyX6DdouS/IvmqTDjChOc5zMFK\n308s7k8p9WerhHCwW8fNEEyp7mT1VCy7wjk3Nv5M1y5hF9P5Wa80YzN4fwKBgC9v\nqrSjN9fJhcoMTSPFQioZpCGDNjpgLLFZw/Hnj1QHeZ+ITZWjg+9cfqhMD5W3wwvn\nC/1jVeIG8Aue98KhTvfKQmhUkVeqo3lqRfWIborbtSCLplGZ0VM64Aw3wHXlxy3+\n/fmyyrlWPq9/Y9iLkC5smGq2uRe7QpUbpTnHyUQxAoGBALw1BD3QwGmbIWCedDmX\nTbofjiOQIJGqzwuzdCgOBGWXt3rAiMQSslhTw0Zx1FUX5uUnLgs1UcZne9bTtN/Z\niciVLwDIuiGfckRrjKqq1x8vBg/yj+dvXW8PXhGqZNBwPg9rQWebpgMLRXdndCv+\nt1wD6l1MP0h3qka6C9DucMoP\n-----END PRIVATE KEY-----\n",
+  "client_email": "meent-art-pinboard@appspot.gserviceaccount.com",
+  "client_id": "100133108170102387766",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/meent-art-pinboard%40appspot.gserviceaccount.com"
+}
