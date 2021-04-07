@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = open(BASE_DIR + '/key_file', 'r').readline()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
 CORS_ORIGIN_WHITELIST = (
@@ -59,6 +59,9 @@ CSRF_COOKIE_SECURE = False
 
 # Application definition
 
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = '<path to your json private key file>'
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '<base google drive path for file uploads>'
+
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
@@ -69,6 +72,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'contentManagement.apps.ContentmanagementConfig',
     'userManagement.apps.UsermanagementConfig',
+    'gdstorage',
     'corsheaders',
 ]
 

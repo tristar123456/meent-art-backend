@@ -13,6 +13,16 @@ from contentManagement.models import Item
 from userManagement.models import Token
 
 
+import firebase_admin
+from firebase_admin import credentials, storage
+
+cred = credentials.Certificate("contentManagement/meent-art-pinboard-90a20008cad4.json")
+firebase_admin.initialize_app(cred, {
+    'storageBucket': 'gs://meent-art-pinboard.appspot.com'
+})
+
+bucket = storage.bucket()
+
 def ItemList(request):
     item_list = Item.objects.all()
     json_item_list = [jsonItem(item, request) for item in item_list]
@@ -86,7 +96,7 @@ def AddItem(request):
         except:
             image_url = ''
         try:
-            image = decode_base64_file(body['image'])
+            image = bucket.blob(str(uuid.uuid4())[:12]).upload_from_string((body['image']))
         except:
             image = None
 
@@ -175,3 +185,5 @@ def DeleteItem(request):
         return JsonResponse(True, safe=False)
     else:
         return HttpResponseForbidden()
+
+
